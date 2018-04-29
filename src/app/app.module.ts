@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HelloButtonComponent } from './hello-button/hello-button.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloButtonComponent
   ],
   imports: [
     BrowserModule
