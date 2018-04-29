@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hello-button',
@@ -7,10 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HelloButtonComponent implements OnInit {
   @Input() name: string;
+  @Output() hello = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  click() {
+    this.hello.emit(`Hello ${this.name}`);
   }
 
 }

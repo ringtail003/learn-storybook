@@ -5,6 +5,8 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Welcome, Button } from '@storybook/angular/demo';
 
+import { HelloButtonComponent } from '../app/hello-button/hello-button.component';
+
 storiesOf('Welcome', module).add('to Storybook', () => ({
   component: Welcome,
   props: {},
@@ -44,3 +46,28 @@ storiesOf('Another Button', module).add('button with link to another story', () 
     onClick: linkTo('Welcome'),
   },
 }));
+
+storiesOf('Hello Button', module)
+  .add('with name', () => ({
+    component: HelloButtonComponent,
+    props: {
+      name: 'foo',
+    },
+  }))
+  .add('with action', () => ({
+    component: HelloButtonComponent,
+    props: {
+      name: 'bar',
+      hello: action('clicked!')
+    },
+  }))
+  .add('with note', withNotes(`
+    <h3>Notes</h3>
+    <span>sample text</span>
+    `)(() => ({
+    component: HelloButtonComponent,
+    props: {
+      name: 'hoge',
+    },
+  })))
+;
